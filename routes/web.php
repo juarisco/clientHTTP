@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/estudiantes', 'EstudiantesController@mostrarEstudiantes')->name('estudiantes');
+Route::get('/profesores', 'ProfesoresController@mostrarProfesores')->name('profesores');
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
