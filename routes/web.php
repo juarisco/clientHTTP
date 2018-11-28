@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/estudiantes', 'EstudiantesController@mostrarEstudiantes')->name('estudiantes');
+Route::get('/estudiantes/unico', 'EstudiantesController@mostrarEstudiante')->name('estudiante');
+Route::post('/estudiantes/unico', 'EstudiantesController@obtenerEstudiante');
+
 Route::get('/profesores', 'ProfesoresController@mostrarProfesores')->name('profesores');
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
