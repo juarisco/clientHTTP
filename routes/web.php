@@ -24,3 +24,5 @@ Route::get('/profesores/unico', 'ProfesoresController@mostrarProfesor')->name('p
 Route::post('/profesores/unico', 'ProfesoresController@obtenerProfesor')->name('profesor');
 
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
+Route::get('/cursos/unico', 'CursosController@mostrarCurso')->name('curso');
+Route::post('/cursos/unico', 'CursosController@obtenercurso')->name('curso');

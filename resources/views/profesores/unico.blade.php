@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label for="id">Id</label>
-        <input type="number" class="form-control" name="id" required>
+        <input type="number" class="form-control" name="id" required autofocus>
     </div>
 
     <button type="submit" class="btn btn-primary">Obtener</button>

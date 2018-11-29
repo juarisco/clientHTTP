@@ -2,9 +2,9 @@
 
 @section('contenido')
     
-<form action="{{ route('estudiante') }}" method="POST" role="form">
+<form action="{{ route('curso') }}" method="POST" role="form">
     {{ csrf_field() }}
-    <legend>Ingrese el Id del Estudiante</legend>
+    <legend>Ingrese el Id del Curso</legend>
 
     <div class="form-group">
         <label for="id">Id</label>

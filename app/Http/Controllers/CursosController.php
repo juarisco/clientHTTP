@@ -3,6 +3,7 @@
 namespace ClienteHTTP\Http\Controllers;
 
 use Illuminate\Http\Request;
+use ClienteHTTP\Http\Requests\unicoRequest;
 
 class CursosController extends Controller
 {
@@ -22,5 +23,29 @@ class CursosController extends Controller
         $cursos = $datos->data;
 
         return $cursos;
+    }
+
+    public function mostrarCurso()
+    {
+        return view('cursos.unico');
+    }
+
+    public function obtenercurso(unicoRequest $request)
+    {
+        $id = $request->id;
+        $curso = $this->obtenerUnCurso($id);
+
+        return view('cursos.mostrar', ['curso' => $curso]);
+    }
+
+    public function obtenerUnCurso($id)
+    {
+        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/cursos/{$id}");
+
+        $datos = json_decode($respuesta);
+
+        $curso = $datos->data;
+
+        return $curso;
     }
 }
