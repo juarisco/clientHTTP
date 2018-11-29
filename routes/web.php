@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Route::get('/estudiantes', 'EstudiantesController@mostrarEstudiantes')->name('estudiantes');
 Route::get('/estudiantes/unico', 'EstudiantesController@mostrarEstudiante')->name('estudiante');
-Route::post('/estudiantes/unico', 'EstudiantesController@obtenerEstudiante');
+Route::post('/estudiantes/unico', 'EstudiantesController@obtenerEstudiante')->name('estudiante');
 
 Route::get('/profesores', 'ProfesoresController@mostrarProfesores')->name('profesores');
+Route::get('/profesores/unico', 'ProfesoresController@mostrarProfesor')->name('profesor');
+Route::post('/profesores/unico', 'ProfesoresController@obtenerProfesor')->name('profesor');
+
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');

@@ -9,7 +9,7 @@
     </div>
     <div class="list-group">
         <a href="{{ route('estudiante') }}" class="list-group-item">Obtener Un Estudiante</a>
-        <a href="" class="list-group-item">Obtener Un Profesor</a>
+        <a href="{{ route('profesor') }}" class="list-group-item">Obtener Un Profesor</a>
         <a href="" class="list-group-item">Obtener Un Curso</a>
     </div>
 </div>
