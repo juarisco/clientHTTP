@@ -48,4 +48,18 @@ class EstudiantesController extends Controller
 
         return $estudiante;
     }
+
+    public function agregarEstudiante()
+    {
+        return view('estudiantes.agregar');
+    }
+
+    public function crearEstudiante(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $respuesta = $this->realizarPeticion('POST', 'https://apilumen.juandmegon.com/estudiantes', ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->all()]);
+
+        return redirect()->route('estudiantes');
+    }
 }
