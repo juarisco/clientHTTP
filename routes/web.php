@@ -27,8 +27,13 @@ Route::post('/estudiantes/agregar', 'EstudiantesController@crearEstudiante')->na
 
 
 Route::get('/profesores', 'ProfesoresController@mostrarProfesores')->name('profesores');
+
 Route::get('/profesores/unico', 'ProfesoresController@mostrarProfesor')->name('profesor');
 Route::post('/profesores/unico', 'ProfesoresController@obtenerProfesor')->name('profesor');
+
+Route::get('/profesores/agregar', 'ProfesoresController@agregarProfesor')->name('agregarProfesor');
+Route::post('/profesores/agregar', 'ProfesoresController@crearProfesor')->name('agregarProfesor');
+
 
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
 Route::get('/cursos/unico', 'CursosController@mostrarCurso')->name('curso');
