@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('principal');
 });
 
+// Route::get('/prueba', 'Controller@obtenerAccessToken');
+
 Route::get('/estudiantes', 'EstudiantesController@mostrarEstudiantes')->name('estudiantes');
 Route::get('/estudiantes/unico', 'EstudiantesController@mostrarEstudiante')->name('estudiante');
 Route::post('/estudiantes/unico', 'EstudiantesController@obtenerEstudiante')->name('estudiante');
