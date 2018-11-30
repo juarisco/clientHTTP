@@ -37,6 +37,10 @@ Route::post('/profesores/unico', 'ProfesoresController@obtenerProfesor')->name('
 Route::get('/profesores/agregar', 'ProfesoresController@agregarProfesor')->name('agregarProfesor');
 Route::post('/profesores/agregar', 'ProfesoresController@crearProfesor')->name('agregarProfesor');
 
+Route::get('/profesores/actualizar', 'ProfesoresController@elegirProfesor')->name('elegirProfesor');
+Route::post('/profesores/actualizar', 'ProfesoresController@editarProfesor')->name('editarProfesor');
+Route::put('/profesores/actualizar/{id}', 'ProfesoresController@actualizarProfesor')->name('actualizarProfesor');
+
 
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
 Route::get('/cursos/unico', 'CursosController@mostrarCurso')->name('curso');
