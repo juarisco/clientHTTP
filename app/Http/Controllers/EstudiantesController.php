@@ -62,4 +62,32 @@ class EstudiantesController extends Controller
 
         return redirect()->route('estudiantes');
     }
+
+    public function elegirEstudiante()
+    {
+        $estudiantes = $this->obtenerTodosLosEstudiantes();
+
+        return view('estudiantes.elegir', ['estudiantes' => $estudiantes]);
+    }
+
+    public function editarEstudiante(Request $request)
+    {
+        $id = $request->estudiante_id;
+
+        $estudiante = $this->obtenerUnEstudiante($id);
+
+        return view('estudiantes.editar', ['estudiante' => $estudiante]);
+    }
+
+    public function actualizarEstudiante(Request $request, $id)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        // $id = $request->id;
+
+        $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/estudiantes/{$id}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
+
+        return redirect()->route('estudiantes');
+
+    }
 }

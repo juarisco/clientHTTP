@@ -25,6 +25,9 @@ Route::post('/estudiantes/unico', 'EstudiantesController@obtenerEstudiante')->na
 Route::get('/estudiantes/agregar', 'EstudiantesController@agregarEstudiante')->name('agregarEstudiante');
 Route::post('/estudiantes/agregar', 'EstudiantesController@crearEstudiante')->name('agregarEstudiante');
 
+Route::get('/estudiantes/actualizar', 'EstudiantesController@elegirEstudiante')->name('elegirEstudiante');
+Route::post('/estudiantes/actualizar', 'EstudiantesController@editarEstudiante')->name('editarEstudiante');
+Route::put('/estudiantes/actualizar/{id}', 'EstudiantesController@actualizarEstudiante')->name('actualizarEstudiante');
 
 Route::get('/profesores', 'ProfesoresController@mostrarProfesores')->name('profesores');
 
