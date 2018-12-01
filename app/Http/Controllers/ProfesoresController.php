@@ -5,24 +5,13 @@ namespace ClienteHTTP\Http\Controllers;
 use Illuminate\Http\Request;
 use ClienteHTTP\Http\Requests\unicoRequest;
 
-class ProfesoresController extends Controller
+class ProfesoresController extends ClienteController
 {
     public function mostrarProfesores()
     {
         $profesores = $this->obtenerTodosLosProfesores();
 
         return view('profesores.todos', ['profesores' => $profesores]);
-    }
-
-    public function obtenerTodosLosProfesores()
-    {
-        $respuesta = $this->realizarPeticion('GET', 'https://apilumen.juandmegon.com/profesores');
-
-        $datos = json_decode($respuesta);
-
-        $profesores = $datos->data;
-
-        return $profesores;
     }
 
     public function mostrarProfesor()
@@ -38,17 +27,6 @@ class ProfesoresController extends Controller
         return view('profesores.mostrar', ['profesor' => $profesor]);
     }
 
-    public function obtenerUnProfesor($id)
-    {
-        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/profesores/{$id}");
-
-        $datos = json_decode($respuesta);
-
-        $profesor = $datos->data;
-
-        return $profesor;
-    }
-
     public function agregarProfesor()
     {
         return view('profesores.agregar');
@@ -56,9 +34,7 @@ class ProfesoresController extends Controller
 
     public function crearProfesor(Request $request)
     {
-        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
-
-        $respuesta = $this->realizarPeticion('POST', 'https://apilumen.juandmegon.com/profesores', ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->all()]);
+        $this->almacenarProfesor($request);
 
         return redirect()->route('profesores');
     }
@@ -81,11 +57,7 @@ class ProfesoresController extends Controller
 
     public function actualizarProfesor(Request $request, $id)
     {
-        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
-
-        // $id = $request->id;
-
-        $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/profesores/{$id}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
+        $this->modificarProfesor($request, $id);
 
         return redirect()->route('profesores');
 
@@ -100,11 +72,7 @@ class ProfesoresController extends Controller
 
     public function eliminarProfesor(Request $request)
     {
-        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
-
-        $id = $request->profesor_id;
-
-        $respuesta = $this->realizarPeticion('DELETE', "https://apilumen.juandmegon.com/profesores/{$id}", ['headers' => ['Authorization' => $accessToken]]);
+        $this->removerProfesor($request);
 
         return redirect()->route('profesores');
 

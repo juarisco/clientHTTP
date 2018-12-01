@@ -5,24 +5,13 @@ namespace ClienteHTTP\Http\Controllers;
 use Illuminate\Http\Request;
 use ClienteHTTP\Http\Requests\unicoRequest;
 
-class EstudiantesController extends Controller
+class EstudiantesController extends ClienteController
 {
     public function mostrarEstudiantes()
     {
         $estudiantes = $this->obtenerTodosLosEstudiantes();
 
         return view('estudiantes.todos', ['estudiantes' => $estudiantes]);
-    }
-
-    public function obtenerTodosLosEstudiantes()
-    {
-        $respuesta = $this->realizarPeticion('GET', 'https://apilumen.juandmegon.com/estudiantes');
-
-        $datos = json_decode($respuesta);
-
-        $estudiantes = $datos->data;
-
-        return $estudiantes;
     }
 
     public function mostrarEstudiante()
@@ -38,17 +27,6 @@ class EstudiantesController extends Controller
         return view('estudiantes.mostrar', ['estudiante' => $estudiante]);
     }
 
-    public function obtenerUnEstudiante($id)
-    {
-        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/estudiantes/{$id}");
-
-        $datos = json_decode($respuesta);
-
-        $estudiante = $datos->data;
-
-        return $estudiante;
-    }
-
     public function agregarEstudiante()
     {
         return view('estudiantes.agregar');
@@ -56,9 +34,7 @@ class EstudiantesController extends Controller
 
     public function crearEstudiante(Request $request)
     {
-        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
-
-        $respuesta = $this->realizarPeticion('POST', 'https://apilumen.juandmegon.com/estudiantes', ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->all()]);
+        $this->almacenarEstudiante($request);
 
         return redirect()->route('estudiantes');
     }
@@ -81,11 +57,7 @@ class EstudiantesController extends Controller
 
     public function actualizarEstudiante(Request $request, $id)
     {
-        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
-
-        // $id = $request->id;
-
-        $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/estudiantes/{$id}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
+        $this->modificarEstudiante($request, $id);
 
         return redirect()->route('estudiantes');
 
@@ -100,11 +72,7 @@ class EstudiantesController extends Controller
 
     public function eliminarEstudiante(Request $request)
     {
-        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
-
-        $id = $request->estudiante_id;
-
-        $respuesta = $this->realizarPeticion('DELETE', "https://apilumen.juandmegon.com/estudiantes/{$id}", ['headers' => ['Authorization' => $accessToken]]);
+        $this->removerEstudiante($request);
 
         return redirect()->route('estudiantes');
 
