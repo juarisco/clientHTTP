@@ -29,6 +29,9 @@ Route::get('/estudiantes/actualizar', 'EstudiantesController@elegirEstudiante')-
 Route::post('/estudiantes/actualizar', 'EstudiantesController@editarEstudiante')->name('editarEstudiante');
 Route::put('/estudiantes/actualizar/{id}', 'EstudiantesController@actualizarEstudiante')->name('actualizarEstudiante');
 
+Route::get('/estudiantes/eliminar', 'EstudiantesController@seleccionarEstudiante')->name('seleccionarEstudiante');
+Route::post('/estudiantes/eliminar', 'EstudiantesController@eliminarEstudiante')->name('eliminarEstudiante');
+
 Route::get('/profesores', 'ProfesoresController@mostrarProfesores')->name('profesores');
 
 Route::get('/profesores/unico', 'ProfesoresController@mostrarProfesor')->name('profesor');

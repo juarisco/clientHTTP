@@ -24,4 +24,8 @@
         <a href="{{ route('elegirProfesor') }}" class="list-group-item">Actualizar Un Profesor</a>
     </div>
 
+    <div class="list-group">
+        <a href="{{ route('seleccionarEstudiante') }}" class="list-group-item">Eliminar Un Estudiante</a>
+    </div>
+
 @endsection

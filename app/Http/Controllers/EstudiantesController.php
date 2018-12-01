@@ -90,4 +90,23 @@ class EstudiantesController extends Controller
         return redirect()->route('estudiantes');
 
     }
+
+    public function seleccionarEstudiante()
+    {
+        $estudiantes = $this->obtenerTodosLosEstudiantes();
+
+        return view('estudiantes.seleccionar', ['estudiantes' => $estudiantes]);
+    }
+
+    public function eliminarEstudiante(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $id = $request->estudiante_id;
+
+        $respuesta = $this->realizarPeticion('DELETE', "https://apilumen.juandmegon.com/estudiantes/{$id}", ['headers' => ['Authorization' => $accessToken]]);
+
+        return redirect()->route('estudiantes');
+
+    }
 }
