@@ -44,6 +44,9 @@ Route::get('/profesores/actualizar', 'ProfesoresController@elegirProfesor')->nam
 Route::post('/profesores/actualizar', 'ProfesoresController@editarProfesor')->name('editarProfesor');
 Route::put('/profesores/actualizar/{id}', 'ProfesoresController@actualizarProfesor')->name('actualizarProfesor');
 
+Route::get('/profesores/eliminar', 'ProfesoresController@seleccionarProfesor')->name('seleccionarProfesor');
+Route::post('/profesores/eliminar', 'ProfesoresController@eliminarProfesor')->name('eliminarProfesor');
+
 
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
 Route::get('/cursos/unico', 'CursosController@mostrarCurso')->name('curso');

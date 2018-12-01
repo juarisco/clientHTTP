@@ -26,6 +26,7 @@
 
     <div class="list-group">
         <a href="{{ route('seleccionarEstudiante') }}" class="list-group-item">Eliminar Un Estudiante</a>
+        <a href="{{ route('seleccionarProfesor') }}" class="list-group-item">Eliminar Un Profesor</a>
     </div>
 
 @endsection
