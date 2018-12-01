@@ -51,3 +51,6 @@ Route::post('/profesores/eliminar', 'ProfesoresController@eliminarProfesor')->na
 Route::get('/cursos', 'CursosController@mostrarCursos')->name('cursos');
 Route::get('/cursos/unico', 'CursosController@mostrarCurso')->name('curso');
 Route::post('/cursos/unico', 'CursosController@obtenercurso')->name('curso');
+
+Route::get('/cursos/estudiantes', 'CursoEstudiantesController@mostrarCursos')->name('mostrarCursos');
+Route::post('/cursos/estudiantes', 'CursoEstudiantesController@mostrarEstudiantesCurso')->name('mostrarEstudiantesCurso');

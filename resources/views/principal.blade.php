@@ -29,4 +29,8 @@
         <a href="{{ route('seleccionarProfesor') }}" class="list-group-item">Eliminar Un Profesor</a>
     </div>
 
+    <div class="list-group">
+        <a href="{{ route('mostrarCursos') }}" class="list-group-item">Obtener los Estudiantes de un Curso</a>
+    </div>
+
 @endsection
