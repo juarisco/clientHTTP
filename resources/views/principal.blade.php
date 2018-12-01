@@ -31,6 +31,7 @@
 
     <div class="list-group">
         <a href="{{ route('mostrarCursos') }}" class="list-group-item">Obtener los Estudiantes de un Curso</a>
+        <a href="{{ route('mostrarProfesores') }}" class="list-group-item">Obtener los Cursos de un Profesor</a>
     </div>
 
 @endsection

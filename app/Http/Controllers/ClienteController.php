@@ -150,4 +150,19 @@ class ClienteController extends Controller
 
     }
 
+    /**
+     * Métodos para ProfesorCursos
+     */
+    protected function obtenerCursosProfesor($profesorId)
+    {
+        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/profesores/{$profesorId}/cursos");
+
+        $datos = json_decode($respuesta);
+
+        $cursos = $datos->data;
+
+        return $cursos;
+
+    }
+
 }

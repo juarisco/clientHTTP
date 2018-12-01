@@ -38,7 +38,7 @@
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>Ups</strong>
-            No hay estudiantes en este momento
+            No hay estudiantes en el curso seleccionado
         </div>
     @endif
 
