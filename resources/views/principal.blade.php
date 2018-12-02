@@ -17,6 +17,7 @@
     <div class="list-group">
         <a href="{{ route('agregarEstudiante') }}" class="list-group-item">Agregar Un Estudiante</a>
         <a href="{{ route('agregarProfesor') }}" class="list-group-item">Agregar Un Profesor</a>
+        <a href="{{ route('agregarCurso') }}" class="list-group-item">Agregar un Curso</a>
     </div>
 
     <div class="list-group">

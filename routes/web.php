@@ -57,3 +57,6 @@ Route::post('/cursos/estudiantes', 'CursoEstudiantesController@mostrarEstudiante
 
 Route::get('/profesores/cursos', 'ProfesorCursosController@mostrarProfesores')->name('mostrarProfesores');
 Route::post('/profesores/cursos', 'ProfesorCursosController@mostrarCursosProfesor')->name('mostrarCursosProfesor');
+
+Route::get('/profesores/cursos/agregar', 'ProfesorCursosController@agregarCurso')->name('agregarCurso');
+Route::post('/profesores/cursos/agregar', 'ProfesorCursosController@crearCurso')->name('crearCurso');
