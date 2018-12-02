@@ -160,6 +160,17 @@ class ClienteController extends Controller
 
     }
 
+    protected function agregarEstudianteCursos(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $cursoId = $request->curso_id;
+        $estudianteId = $request->estudiante_id;
+
+        $this->realizarPeticion('POST', "https://apilumen.juandmegon.com/cursos/{$cursoId}/estudiantes/{$estudianteId}", ['headers' => ['Authorization' => $accessToken]]);
+
+    }
+
     /**
      * Métodos para ProfesorCursos
      */

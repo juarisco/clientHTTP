@@ -55,6 +55,9 @@ Route::post('/cursos/unico', 'CursosController@obtenercurso')->name('curso');
 Route::get('/cursos/estudiantes', 'CursoEstudiantesController@mostrarCursos')->name('mostrarCursos');
 Route::post('/cursos/estudiantes', 'CursoEstudiantesController@mostrarEstudiantesCurso')->name('mostrarEstudiantesCurso');
 
+Route::get('/cursos/estudiantes/agregar', 'CursoEstudiantesController@mostrarEstudiantesCursos')->name('mostrarEstudiantesCursos');
+Route::post('/cursos/estudiantes/agregar', 'CursoEstudiantesController@agregarEstudianteCurso')->name('agregarEstudianteCurso');
+
 Route::get('/profesores/cursos', 'ProfesorCursosController@mostrarProfesores')->name('mostrarProfesores');
 Route::post('/profesores/cursos', 'ProfesorCursosController@mostrarCursosProfesor')->name('mostrarCursosProfesor');
 
