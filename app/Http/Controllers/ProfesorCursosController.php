@@ -62,4 +62,18 @@ class ProfesorCursosController extends ClienteController
 
         return redirect()->route('cursos');
     }
+
+    public function seleccionarCurso()
+    {
+        $cursos = $this->obtenerTodosLosCursos();
+
+        return view('profesor-cursos.seleccionar', ['cursos' => $cursos]);
+    }
+
+    public function eliminarCurso(Request $request)
+    {
+        $this->removerCurso($request);
+
+        return redirect()->route('cursos');
+    }
 }

@@ -69,3 +69,6 @@ Route::get('/profesores/cursos/actualizar', 'ProfesorCursosController@elegirCurs
 Route::post('/profesores/cursos/actualizar', 'ProfesorCursosController@editarCurso')->name('editarCurso');
 // Route::put('/profesores/cursos/actualizar', 'ProfesorCursosController@actualizarCurso')->name('actualizarCurso');
 Route::put('/profesores/cursos/{id}/actualizar', 'ProfesorCursosController@actualizarCurso')->name('actualizarCurso');
+
+Route::get('/profesores/cursos/eliminar', 'ProfesorCursosController@seleccionarCurso')->name('seleccionarCurso');
+Route::post('/profesores/cursos/eliminar', 'ProfesorCursosController@eliminarCurso')->name('eliminarCurso');

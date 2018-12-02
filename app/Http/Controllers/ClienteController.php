@@ -198,4 +198,17 @@ class ClienteController extends Controller
         $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/profesores/{$idProfesor}/cursos/{$idCurso}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
     }
 
+    protected function removerCurso(Request $request)
+    {
+        $idCurso = $request->curso_id;
+
+        $curso = $this->obtenerUnCurso($idCurso);
+
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+
+        $respuesta = $this->realizarPeticion('DELETE', "https://apilumen.juandmegon.com/profesores/{$curso->profesor_id}/cursos/{$curso->id}", ['headers' => ['Authorization' => $accessToken]]);
+
+    }
+
 }
