@@ -23,6 +23,7 @@
     <div class="list-group">
         <a href="{{ route('elegirEstudiante') }}" class="list-group-item">Actualizar Un Estudiante</a>
         <a href="{{ route('elegirProfesor') }}" class="list-group-item">Actualizar Un Profesor</a>
+        <a href="{{ route('elegirCurso') }}" class="list-group-item">Actualizar Un Curso</a>
     </div>
 
     <div class="list-group">

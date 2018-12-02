@@ -186,4 +186,16 @@ class ClienteController extends Controller
 
     }
 
+    protected function modificarCurso(Request $request, $id)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        // $id = $request->id;
+        // $idCurso = $request->curso_id;
+        $idCurso = $id;
+        $idProfesor = $request->profesor_id;
+
+        $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/profesores/{$idProfesor}/cursos/{$idCurso}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
+    }
+
 }
