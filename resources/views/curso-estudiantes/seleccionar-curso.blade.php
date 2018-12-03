@@ -10,6 +10,7 @@
     <div class="form-group">
         <label for="curso_id">Curso</label>
         <select name="curso_id" id="" class="form-control" required>
+            <option value="">Por favor elija un curso</option>
             @foreach ($cursos as $curso)
                 <option value="{{ $curso->id }}">{{ $curso->titulo }}</option>
             @endforeach

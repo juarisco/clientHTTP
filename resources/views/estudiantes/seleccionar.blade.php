@@ -9,6 +9,7 @@
     <div class="form-group">
         <label for="estudiante_id">Estudiante</label>
         <select name="estudiante_id" id="" class="form-control" required>
+            <option value="">Por favor elija un estudiante</option>
             @foreach ($estudiantes as $estudiante)
                 <option value="{{ $estudiante->id }}">{{ $estudiante->nombre }}</option>
             @endforeach
