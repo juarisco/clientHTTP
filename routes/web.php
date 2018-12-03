@@ -72,3 +72,7 @@ Route::put('/profesores/cursos/{id}/actualizar', 'ProfesorCursosController@actua
 
 Route::get('/profesores/cursos/eliminar', 'ProfesorCursosController@seleccionarCurso')->name('seleccionarCurso');
 Route::post('/profesores/cursos/eliminar', 'ProfesorCursosController@eliminarCurso')->name('eliminarCurso');
+
+Route::get('/cursos/estudiantes/eliminar', 'CursoEstudiantesController@seleccionarCurso')->name('seleccionarCurso');
+Route::post('/cursos/estudiantes/eliminar', 'CursoEstudiantesController@seleccionarEstudianteCurso')->name('seleccionarEstudianteCurso');
+Route::delete('/cursos/estudiantes/eliminar', 'CursoEstudiantesController@eliminarEstudianteCurso')->name('eliminarEstudianteCurso');
