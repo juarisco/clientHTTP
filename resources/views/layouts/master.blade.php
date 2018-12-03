@@ -17,7 +17,8 @@
         <a href="{{ url('/') }}"><h1>Cliente<small>HTTP</small></h1></a>
     </div>
     <div class="container-fluid">
-         @yield('contenido')
+        @include('componentes.errores')
+        @yield('contenido')
     </div>
 
 </body>

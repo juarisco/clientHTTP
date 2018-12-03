@@ -3,6 +3,7 @@
 namespace ClienteHTTP\Exceptions;
 
 use Exception;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -48,6 +49,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ClientException) {
+            $mensaje = json_decode($exception->getResponse()->getBody()->getContents());
+            $mensaje = $mensaje->message;
+
+            return redirect()->back()->withErrors(['cliente' => $mensaje])->withInput($request->all());
+        }
+
         return parent::render($request, $exception);
     }
 }
